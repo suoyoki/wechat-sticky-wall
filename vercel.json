@@ -1,0 +1,23 @@
+{
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python@2.10.0",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py",
+      "methods": ["GET", "POST"]
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "./",
+    "FLASK_APP": "app.py"
+  }
+}
